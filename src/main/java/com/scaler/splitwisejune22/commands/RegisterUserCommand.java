@@ -26,16 +26,16 @@ public class  RegisterUserCommand implements Command {
     public boolean canExecute(String input) {
         // Register vinsmokesanji 003 namisswwaann
         // ["Register", "vinsmokesanji", "003", "namisswwaann"]
+        // Step 1: Read inputs
         List<String> params = Arrays.stream(input.split(" ")).toList();
-
+        // Step 2. Validate the inputs.
         if (params.size() != 4) {
             return false;
         }
-
+        // notice that we use constants for command keywords and don't use literal strings so they can be changed at one place
         if (!params.get(0).equals(CommandKeywords.REGISTER_USER_COMMAND)) {
             return false;
         }
-
         return true;
     }
 
